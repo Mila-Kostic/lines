@@ -15,12 +15,22 @@ let boxes = document.querySelectorAll(".box");
 makeBalls(10);
 
 function makeBalls(ballNumber) {
+  for (let i = 0; i < ballNumber; i++) {
+    //const randBox1 = randBox[i];
+    let rand = Math.floor(Math.random() * boxes.length);
+    let rand2 = Math.floor(Math.random() * ballColors.length);
+    let randColor = ballColors[rand2];
+    let randBox = boxes[rand];
+    randBox.innerHTML = `<div class="ball" style="background: ${randColor}"></div>`;
+  }
+
   let rand = Math.floor(Math.random() * boxes.length);
   let rand2 = Math.floor(Math.random() * ballColors.length);
   let randColor = ballColors[rand2];
   let randBox = boxes[rand];
   randBox.innerHTML = `<div class="ball" style="background: ${randColor}"></div>`;
 }
+
 function makeGrid() {
   let text = ``;
   for (let i = 0; i < 100; i++) {
